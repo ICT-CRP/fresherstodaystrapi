@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "meta_datas",
+  "info": {
+    "singularName": "meta-data",
+    "pluralName": "meta-datas",
+    "displayName": "Meta Data"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "openGraph": {
+      "type": "component",
+      "component": "shared.open-graph",
+      "repeatable": false
+    },
+    "twitter": {
+      "type": "component",
+      "component": "shared.twitter",
+      "repeatable": false
+    },
+    "icons": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
