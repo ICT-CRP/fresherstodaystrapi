@@ -1,5 +1,16 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedCompanies extends Struct.ComponentSchema {
+  collectionName: 'components_shared_companies';
+  info: {
+    displayName: 'Companies';
+  };
+  attributes: {
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -22,6 +33,20 @@ export interface SharedOpenGraph extends Struct.ComponentSchema {
     title: Schema.Attribute.String;
     type: Schema.Attribute.String;
     url: Schema.Attribute.String;
+  };
+}
+
+export interface SharedPreparationCards extends Struct.ComponentSchema {
+  collectionName: 'components_shared_preparation_cards';
+  info: {
+    displayName: 'Preparation Cards';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.Text;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -90,16 +115,35 @@ export interface SharedTwitter extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedWorkStep extends Struct.ComponentSchema {
+  collectionName: 'components_shared_work_steps';
+  info: {
+    displayName: 'WorkStep';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    spanPosition: Schema.Attribute.String;
+    spanText: Schema.Attribute.String;
+    stepNumber: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.companies': SharedCompanies;
       'shared.media': SharedMedia;
       'shared.open-graph': SharedOpenGraph;
+      'shared.preparation-cards': SharedPreparationCards;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
       'shared.twitter': SharedTwitter;
+      'shared.work-step': SharedWorkStep;
     }
   }
 }

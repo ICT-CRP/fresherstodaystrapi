@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "practice_sections",
+  "info": {
+    "singularName": "practice-section",
+    "pluralName": "practice-sections",
+    "displayName": "Practice Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    }
+  }
+}

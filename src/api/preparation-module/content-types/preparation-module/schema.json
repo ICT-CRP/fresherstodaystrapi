@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "preparation_modules",
+  "info": {
+    "singularName": "preparation-module",
+    "pluralName": "preparation-modules",
+    "displayName": "Preparation Module"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "badgeText": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "highlightText": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "PreparationCards": {
+      "type": "component",
+      "component": "shared.preparation-cards",
+      "repeatable": true
+    }
+  }
+}

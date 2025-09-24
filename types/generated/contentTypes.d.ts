@@ -506,6 +506,35 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCompaniesListCompaniesList extends Struct.SingleTypeSchema {
+  collectionName: 'companies_lists';
+  info: {
+    displayName: 'Companies List';
+    pluralName: 'companies-lists';
+    singularName: 'companies-list';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    companies: Schema.Attribute.Component<'shared.companies', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::companies-list.companies-list'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -569,6 +598,65 @@ export interface ApiHeaderBannerHeaderBanner extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHeroSectionHeroSection extends Struct.SingleTypeSchema {
+  collectionName: 'hero_sections';
+  info: {
+    displayName: 'Hero Section';
+    pluralName: 'hero-sections';
+    singularName: 'hero-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.Text;
+    highlightText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hero-section.hero-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subHeading: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHowItWorksHowItWorks extends Struct.SingleTypeSchema {
+  collectionName: 'how_it_workss';
+  info: {
+    displayName: 'HowItWorks';
+    pluralName: 'how-it-workss';
+    singularName: 'how-it-works';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::how-it-works.how-it-works'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    WorkStep: Schema.Attribute.Component<'shared.work-step', true>;
+  };
+}
+
 export interface ApiMetaDataMetaData extends Struct.SingleTypeSchema {
   collectionName: 'meta_datas';
   info: {
@@ -598,6 +686,75 @@ export interface ApiMetaDataMetaData extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     twitter: Schema.Attribute.Component<'shared.twitter', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPracticeSectionPracticeSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'practice_sections';
+  info: {
+    displayName: 'Practice Section';
+    pluralName: 'practice-sections';
+    singularName: 'practice-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    header: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::practice-section.practice-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPreparationModulePreparationModule
+  extends Struct.SingleTypeSchema {
+  collectionName: 'preparation_modules';
+  info: {
+    displayName: 'Preparation Module';
+    pluralName: 'preparation-modules';
+    singularName: 'preparation-module';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    badgeText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    highlightText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::preparation-module.preparation-module'
+    > &
+      Schema.Attribute.Private;
+    PreparationCards: Schema.Attribute.Component<
+      'shared.preparation-cards',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1117,9 +1274,14 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::companies-list.companies-list': ApiCompaniesListCompaniesList;
       'api::global.global': ApiGlobalGlobal;
       'api::header-banner.header-banner': ApiHeaderBannerHeaderBanner;
+      'api::hero-section.hero-section': ApiHeroSectionHeroSection;
+      'api::how-it-works.how-it-works': ApiHowItWorksHowItWorks;
       'api::meta-data.meta-data': ApiMetaDataMetaData;
+      'api::practice-section.practice-section': ApiPracticeSectionPracticeSection;
+      'api::preparation-module.preparation-module': ApiPreparationModulePreparationModule;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
