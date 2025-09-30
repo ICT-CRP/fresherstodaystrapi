@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "platform_features",
+  "info": {
+    "singularName": "platform-feature",
+    "pluralName": "platform-features",
+    "displayName": "Platform Feature"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "FeatureCard": {
+      "type": "component",
+      "component": "shared.feature-card",
+      "repeatable": true
+    }
+  }
+}

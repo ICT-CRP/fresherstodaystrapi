@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "free_resources",
+  "info": {
+    "singularName": "free-resource",
+    "pluralName": "free-resources",
+    "displayName": "Free Resource"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "highlightText": {
+      "type": "string"
+    },
+    "Resources": {
+      "type": "component",
+      "component": "shared.resources",
+      "repeatable": true
+    }
+  }
+}

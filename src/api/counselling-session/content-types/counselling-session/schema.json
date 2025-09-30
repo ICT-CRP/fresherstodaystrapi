@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "counselling_sessions",
+  "info": {
+    "singularName": "counselling-session",
+    "pluralName": "counselling-sessions",
+    "displayName": "Counselling Session"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "header": {
+      "type": "string"
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    }
+  }
+}
