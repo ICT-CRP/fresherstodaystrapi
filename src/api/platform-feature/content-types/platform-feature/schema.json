@@ -14,6 +14,12 @@
     "header": {
       "type": "string"
     },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
     "description": {
       "type": "text"
     },

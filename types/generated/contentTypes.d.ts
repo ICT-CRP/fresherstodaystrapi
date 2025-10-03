@@ -529,6 +529,38 @@ export interface ApiFaqSectionFaqSection extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFooterFooter extends Struct.SingleTypeSchema {
+  collectionName: 'footers';
+  info: {
+    displayName: 'Footer';
+    pluralName: 'footers';
+    singularName: 'footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer.footer'
+    > &
+      Schema.Attribute.Private;
+    primaryLinks: Schema.Attribute.Component<'shared.footer-links', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    secondaryLinks: Schema.Attribute.Component<'shared.footer-links', true>;
+    socialLinks: Schema.Attribute.Component<'shared.footer-links', true>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFreeResourceFreeResource extends Struct.SingleTypeSchema {
   collectionName: 'free_resources';
   info: {
@@ -733,6 +765,8 @@ export interface ApiPlatformFeaturePlatformFeature
     draftAndPublish: true;
   };
   attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1368,6 +1402,7 @@ declare module '@strapi/strapi' {
       'api::companies-list.companies-list': ApiCompaniesListCompaniesList;
       'api::counselling-session.counselling-session': ApiCounsellingSessionCounsellingSession;
       'api::faq-section.faq-section': ApiFaqSectionFaqSection;
+      'api::footer.footer': ApiFooterFooter;
       'api::free-resource.free-resource': ApiFreeResourceFreeResource;
       'api::header-banner.header-banner': ApiHeaderBannerHeaderBanner;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;

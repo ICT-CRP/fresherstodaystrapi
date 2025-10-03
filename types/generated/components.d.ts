@@ -25,6 +25,14 @@ export interface SharedFeatureCard extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFooterLinks extends Struct.ComponentSchema {
+  collectionName: 'components_shared_footer_links';
+  info: {
+    displayName: 'FooterLinks';
+  };
+  attributes: {};
+}
+
 export interface SharedOpenGraph extends Struct.ComponentSchema {
   collectionName: 'components_shared_open_graphs';
   info: {
@@ -111,6 +119,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'shared.companies': SharedCompanies;
       'shared.feature-card': SharedFeatureCard;
+      'shared.footer-links': SharedFooterLinks;
       'shared.open-graph': SharedOpenGraph;
       'shared.preparation-cards': SharedPreparationCards;
       'shared.questions': SharedQuestions;
