@@ -4,6 +4,13 @@
     "displayName": "FooterLinks"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  },
   "config": {}
 }

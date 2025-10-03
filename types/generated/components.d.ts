@@ -30,7 +30,10 @@ export interface SharedFooterLinks extends Struct.ComponentSchema {
   info: {
     displayName: 'FooterLinks';
   };
-  attributes: {};
+  attributes: {
+    link: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+  };
 }
 
 export interface SharedOpenGraph extends Struct.ComponentSchema {
