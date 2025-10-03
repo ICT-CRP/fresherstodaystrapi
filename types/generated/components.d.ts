@@ -110,7 +110,20 @@ export interface SharedWorkStep extends Struct.ComponentSchema {
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    spanPosition: Schema.Attribute.String;
+    spanPosition: Schema.Attribute.Enumeration<
+      [
+        'top',
+        'bottom',
+        'left',
+        'right',
+        'top-left',
+        'top-right',
+        'bottom-left',
+        'bottom-right',
+        'center',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'center'>;
     spanText: Schema.Attribute.String;
     stepNumber: Schema.Attribute.Integer;
     title: Schema.Attribute.String;
