@@ -604,6 +604,7 @@ export interface ApiHeaderBannerHeaderBanner extends Struct.SingleTypeSchema {
   attributes: {
     amount: Schema.Attribute.String;
     amountDescription: Schema.Attribute.Text;
+    buttonText: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -616,6 +617,7 @@ export interface ApiHeaderBannerHeaderBanner extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    resource: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -849,6 +851,38 @@ export interface ApiPreparationModulePreparationModule
     >;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStudentLeadStudentLead extends Struct.CollectionTypeSchema {
+  collectionName: 'student_leads';
+  info: {
+    displayName: 'Student Lead';
+    pluralName: 'student-leads';
+    singularName: 'student-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    branch: Schema.Attribute.String;
+    college: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::student-lead.student-lead'
+    > &
+      Schema.Attribute.Private;
+    mobile: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1412,6 +1446,7 @@ declare module '@strapi/strapi' {
       'api::platform-feature.platform-feature': ApiPlatformFeaturePlatformFeature;
       'api::practice-section.practice-section': ApiPracticeSectionPracticeSection;
       'api::preparation-module.preparation-module': ApiPreparationModulePreparationModule;
+      'api::student-lead.student-lead': ApiStudentLeadStudentLead;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

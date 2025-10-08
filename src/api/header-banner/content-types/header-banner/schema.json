@@ -22,6 +22,19 @@
     },
     "amountDescription": {
       "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "resource": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
