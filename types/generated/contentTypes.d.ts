@@ -857,6 +857,42 @@ export interface ApiPreparationModulePreparationModule
   };
 }
 
+export interface ApiPromoDialogPromoDialog extends Struct.SingleTypeSchema {
+  collectionName: 'promo_dialogs';
+  info: {
+    displayName: 'Promo Dialog';
+    pluralName: 'promo-dialogs';
+    singularName: 'promo-dialog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonLabel: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    featureHeader: Schema.Attribute.String;
+    features: Schema.Attribute.Text;
+    headerOne: Schema.Attribute.String;
+    headerTwo: Schema.Attribute.String;
+    labelDescription: Schema.Attribute.String;
+    labelTitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::promo-dialog.promo-dialog'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    resource: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiStudentLeadStudentLead extends Struct.CollectionTypeSchema {
   collectionName: 'student_leads';
   info: {
@@ -1446,6 +1482,7 @@ declare module '@strapi/strapi' {
       'api::platform-feature.platform-feature': ApiPlatformFeaturePlatformFeature;
       'api::practice-section.practice-section': ApiPracticeSectionPracticeSection;
       'api::preparation-module.preparation-module': ApiPreparationModulePreparationModule;
+      'api::promo-dialog.promo-dialog': ApiPromoDialogPromoDialog;
       'api::student-lead.student-lead': ApiStudentLeadStudentLead;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;

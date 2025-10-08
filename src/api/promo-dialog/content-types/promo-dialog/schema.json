@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "promo_dialogs",
+  "info": {
+    "singularName": "promo-dialog",
+    "pluralName": "promo-dialogs",
+    "displayName": "Promo Dialog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "labelTitle": {
+      "type": "string"
+    },
+    "labelDescription": {
+      "type": "string"
+    },
+    "headerOne": {
+      "type": "string"
+    },
+    "headerTwo": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "featureHeader": {
+      "type": "string"
+    },
+    "features": {
+      "type": "text"
+    },
+    "resource": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
