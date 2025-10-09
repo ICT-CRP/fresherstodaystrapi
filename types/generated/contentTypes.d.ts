@@ -500,6 +500,37 @@ export interface ApiCounsellingSessionCounsellingSession
   };
 }
 
+export interface ApiDreamJobDreamJob extends Struct.SingleTypeSchema {
+  collectionName: 'dream_jobs';
+  info: {
+    displayName: 'Dream Job';
+    pluralName: 'dream-jobs';
+    singularName: 'dream-job';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    header: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dream-job.dream-job'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFaqSectionFaqSection extends Struct.SingleTypeSchema {
   collectionName: 'faq_sections';
   info: {
@@ -1471,6 +1502,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::companies-list.companies-list': ApiCompaniesListCompaniesList;
       'api::counselling-session.counselling-session': ApiCounsellingSessionCounsellingSession;
+      'api::dream-job.dream-job': ApiDreamJobDreamJob;
       'api::faq-section.faq-section': ApiFaqSectionFaqSection;
       'api::footer.footer': ApiFooterFooter;
       'api::free-resource.free-resource': ApiFreeResourceFreeResource;
