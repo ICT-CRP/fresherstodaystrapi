@@ -924,6 +924,38 @@ export interface ApiPromoDialogPromoDialog extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiSupportTicketSupportTicket
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'support_tickets';
+  info: {
+    displayName: 'Support Ticket';
+    pluralName: 'support-tickets';
+    singularName: 'support-ticket';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::support-ticket.support-ticket'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    mobile: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   collectionName: 'testimonials';
   info: {
@@ -1483,6 +1515,7 @@ declare module '@strapi/strapi' {
       'api::practice-section.practice-section': ApiPracticeSectionPracticeSection;
       'api::preparation-module.preparation-module': ApiPreparationModulePreparationModule;
       'api::promo-dialog.promo-dialog': ApiPromoDialogPromoDialog;
+      'api::support-ticket.support-ticket': ApiSupportTicketSupportTicket;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
