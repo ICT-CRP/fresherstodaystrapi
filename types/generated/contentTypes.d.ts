@@ -500,6 +500,34 @@ export interface ApiCounsellingSessionCounsellingSession
   };
 }
 
+export interface ApiDisclaimerDisclaimer extends Struct.SingleTypeSchema {
+  collectionName: 'disclaimers';
+  info: {
+    displayName: 'Disclaimer';
+    pluralName: 'disclaimers';
+    singularName: 'disclaimer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::disclaimer.disclaimer'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDreamJobDreamJob extends Struct.SingleTypeSchema {
   collectionName: 'dream_jobs';
   info: {
@@ -888,6 +916,34 @@ export interface ApiPreparationModulePreparationModule
   };
 }
 
+export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
+  collectionName: 'privacy_policies';
+  info: {
+    displayName: 'Privacy Policy';
+    pluralName: 'privacy-policies';
+    singularName: 'privacy-policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-policy.privacy-policy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPromoDialogPromoDialog extends Struct.SingleTypeSchema {
   collectionName: 'promo_dialogs';
   info: {
@@ -924,6 +980,35 @@ export interface ApiPromoDialogPromoDialog extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiRefundAndCancellationRefundAndCancellation
+  extends Struct.SingleTypeSchema {
+  collectionName: 'refund_and_cancellations';
+  info: {
+    displayName: 'Refund & Cancellation';
+    pluralName: 'refund-and-cancellations';
+    singularName: 'refund-and-cancellation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::refund-and-cancellation.refund-and-cancellation'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSupportTicketSupportTicket
   extends Struct.CollectionTypeSchema {
   collectionName: 'support_tickets';
@@ -949,6 +1034,35 @@ export interface ApiSupportTicketSupportTicket
     message: Schema.Attribute.Text;
     mobile: Schema.Attribute.String;
     name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTermsAndConditionTermsAndCondition
+  extends Struct.SingleTypeSchema {
+  collectionName: 'terms_and_conditions';
+  info: {
+    displayName: 'Terms & Condition';
+    pluralName: 'terms-and-conditions';
+    singularName: 'terms-and-condition';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::terms-and-condition.terms-and-condition'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1502,6 +1616,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::companies-list.companies-list': ApiCompaniesListCompaniesList;
       'api::counselling-session.counselling-session': ApiCounsellingSessionCounsellingSession;
+      'api::disclaimer.disclaimer': ApiDisclaimerDisclaimer;
       'api::dream-job.dream-job': ApiDreamJobDreamJob;
       'api::faq-section.faq-section': ApiFaqSectionFaqSection;
       'api::footer.footer': ApiFooterFooter;
@@ -1514,8 +1629,11 @@ declare module '@strapi/strapi' {
       'api::platform-feature.platform-feature': ApiPlatformFeaturePlatformFeature;
       'api::practice-section.practice-section': ApiPracticeSectionPracticeSection;
       'api::preparation-module.preparation-module': ApiPreparationModulePreparationModule;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::promo-dialog.promo-dialog': ApiPromoDialogPromoDialog;
+      'api::refund-and-cancellation.refund-and-cancellation': ApiRefundAndCancellationRefundAndCancellation;
       'api::support-ticket.support-ticket': ApiSupportTicketSupportTicket;
+      'api::terms-and-condition.terms-and-condition': ApiTermsAndConditionTermsAndCondition;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

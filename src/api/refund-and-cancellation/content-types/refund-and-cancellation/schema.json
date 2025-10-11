@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "refund_and_cancellations",
+  "info": {
+    "singularName": "refund-and-cancellation",
+    "pluralName": "refund-and-cancellations",
+    "displayName": "Refund & Cancellation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}
